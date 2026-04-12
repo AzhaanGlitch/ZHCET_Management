@@ -3,42 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZHCET Portal | Welcome</title>
+    <title>ZHCET Management System</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container hidden" id="hero-section">
+    <div class="main-header" style="flex-direction: column; align-items: stretch; padding: 0;">
+        <div style="background-color: #ffffff; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+            <h1 style="color: var(--accent); font-size: 2rem; margin: 0; font-weight: bold;">Zakir Husain College of Engineering & Technology</h1>
+            <!-- Change 'logo.png' below to your specific logo file inside the frontend folder -->
+            <img src="logo.png" alt="College Logo Placeholder" height="70" onerror="this.src='https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Aligarh_Muslim_University_logo.svg/150px-Aligarh_Muslim_University_logo.svg.png';">
+        </div>
+        
+        <div class="navbar-institutional" style="background-color: var(--accent); padding: 0.8rem 2rem; justify-content: flex-start; gap: 2rem;">
+            <a href="#" class="portal-nav" data-role="admin">Admin Portal Login</a>
+            <a href="#" class="portal-nav" data-role="faculty">Faculty Portal Login</a>
+            <a href="#" class="portal-nav" data-role="student">Student Portal Login</a>
+        </div>
+    </div>
+
+    <!-- Image Strip: Place 'banner.jpg' inside the frontend folder directly -->
+    <div class="banner-wrapper fade-in" id="home-banner">
+        <img src="banner.jpg" alt="" class="full-width-banner" onerror="this.style.display='none';">
+    </div>
+
+    <!-- Transition Wrapper container with fade-in -->
+    <div class="container fade-in" id="hero-section">
         <div class="hero-content">
-            <h1 class="glow-text">ZHCET Management System</h1>
-            <p>Welcome to the unified portal for Administrator, Faculty, and Students. Experience the next generation of college management.</p>
-            <button id="get-started-btn" class="primary-btn">Get Started</button>
+            <h2 class="header-text">ZHCET Unified Management Portal</h2>
+            <p>Welcome to the official portal for Administrator, Faculty, and Students of ZHCET. Please select your role to proceed to the secure login gateway.</p>
+            <button id="get-started-btn" class="primary-btn">Proceed to Portal</button>
         </div>
     </div>
 
-    <div class="container hidden" id="role-selection">
-        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Select Your Role</h2>
+    <div class="container hidden fade-in" id="role-selection">
+        <h2 class="header-text">Select Portal Access</h2>
         <div class="cards-container">
-            <div class="role-card glass-panel" data-role="admin">
+            <div class="role-card" data-role="admin">
                 <h3>Administrator</h3>
-                <p>Full access and system management</p>
+                <p>System management and full database access</p>
             </div>
-            <div class="role-card glass-panel" data-role="faculty">
-                <h3>Faculty Member</h3>
-                <p>Teacher profile and repository search</p>
+            <div class="role-card" data-role="faculty">
+                <h3>Faculty</h3>
+                <p>Teacher profile management</p>
             </div>
-            <div class="role-card glass-panel" data-role="student">
+            <div class="role-card" data-role="student">
                 <h3>Student</h3>
-                <p>Private personal student portal</p>
+                <p>Personal student dashboard</p>
             </div>
         </div>
-        <button id="back-to-hero" class="text-btn">Back</button>
+        <button id="back-to-hero" class="text-btn">Return to Home</button>
     </div>
 
-    <div class="container hidden" id="login-section">
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Portal - <span id="login-role-text"></span></h2>
+    <div class="container hidden fade-in" id="login-section">
+        <h2 class="header-text"><span id="login-role-text"></span> Portal</h2>
 
-        <div class="auth-box glass-panel">
+        <div class="auth-box panel">
             <div class="auth-toggle" id="auth-toggle">
                 <div class="auth-tab active" data-mode="login">Login</div>
                 <div class="auth-tab" data-mode="signup">Sign Up</div>
@@ -48,14 +67,16 @@
                 <input type="hidden" id="auth-role" name="role">
                 <input type="hidden" id="auth-mode" name="mode" value="login">
                 
-                <div id="dynamic-fields" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div id="dynamic-fields" style="display: flex; flex-direction: column; gap: 1rem;">
                 </div>
 
-                <button type="submit" class="primary-btn full-width" id="submit-btn" style="margin-top: 1.5rem">Login</button>
+                <div style="margin-top: 1.5rem;">
+                    <button type="submit" class="primary-btn full-width" id="submit-btn">Login</button>
+                </div>
             </form>
             <p id="auth-error" class="error-msg"></p>
         </div>
-        <button id="back-to-roles" class="text-btn mt-2">Back to Roles</button>
+        <button id="back-to-roles" class="text-btn">Back to Selection</button>
     </div>
 
     <script src="app.js"></script>
