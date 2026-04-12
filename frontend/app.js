@@ -15,57 +15,68 @@ function initIndex() {
         window.location.href = 'dashboard.html';
     }
 
+    const homeBanner = document.getElementById('home-banner');
+
     document.getElementById('get-started-btn').addEventListener('click', () => {
-        heroSection.classList.remove('visible');
         heroSection.classList.add('hidden');
+        if(homeBanner) homeBanner.classList.add('hidden');
         setTimeout(() => {
             roleSelection.classList.remove('hidden');
-            roleSelection.classList.add('visible');
-        }, 400);
+        }, 50);
     });
 
     document.getElementById('back-to-hero').addEventListener('click', () => {
-        roleSelection.classList.remove('visible');
         roleSelection.classList.add('hidden');
         setTimeout(() => {
             heroSection.classList.remove('hidden');
-            heroSection.classList.add('visible');
-        }, 400);
+            if(homeBanner) homeBanner.classList.remove('hidden');
+        }, 50);
     });
 
     let currentRole = '';
 
+    const activateRoleFlow = (roleClicked) => {
+        currentRole = roleClicked;
+        document.getElementById('auth-role').value = currentRole;
+        document.getElementById('login-role-text').innerText = currentRole.charAt(0).toUpperCase() + currentRole.slice(1);
+        
+        if (currentRole === 'admin') {
+            document.getElementById('auth-toggle').style.display = 'none';
+            setAuthMode('login');
+        } else {
+            document.getElementById('auth-toggle').style.display = 'flex';
+            setAuthMode('login');
+        }
+
+        heroSection.classList.add('hidden');
+        roleSelection.classList.add('hidden');
+        if(document.getElementById('home-banner')) document.getElementById('home-banner').classList.add('hidden');
+        
+        // Let CSS reset animation by briefly hiding logic
+        loginSection.classList.add('hidden');
+        setTimeout(() => {
+            loginSection.classList.remove('hidden');
+        }, 50);
+    };
+
+    document.querySelectorAll('.portal-nav').forEach(nav => {
+        nav.addEventListener('click', (e) => {
+            e.preventDefault();
+            activateRoleFlow(e.currentTarget.dataset.role);
+        });
+    });
+
     document.querySelectorAll('.role-card').forEach(card => {
         card.addEventListener('click', (e) => {
-            currentRole = e.currentTarget.dataset.role;
-            document.getElementById('auth-role').value = currentRole;
-            document.getElementById('login-role-text').innerText = currentRole.charAt(0).toUpperCase() + currentRole.slice(1);
-            
-            // Hide Signup Toggle for Admin
-            if (currentRole === 'admin') {
-                document.getElementById('auth-toggle').style.display = 'none';
-                setAuthMode('login');
-            } else {
-                document.getElementById('auth-toggle').style.display = 'flex';
-                setAuthMode('login');
-            }
-
-            roleSelection.classList.remove('visible');
-            roleSelection.classList.add('hidden');
-            setTimeout(() => {
-                loginSection.classList.remove('hidden');
-                loginSection.classList.add('visible');
-            }, 400);
+            activateRoleFlow(e.currentTarget.dataset.role);
         });
     });
 
     document.getElementById('back-to-roles').addEventListener('click', () => {
-        loginSection.classList.remove('visible');
         loginSection.classList.add('hidden');
         setTimeout(() => {
             roleSelection.classList.remove('hidden');
-            roleSelection.classList.add('visible');
-        }, 400);
+        }, 50);
     });
 
     // Auth Toggle logic
@@ -368,9 +379,9 @@ window.openCreateModal = () => {
         renderFields(e.target.value);
     });
 
-    modal.classList.add('active');
+    modal.classList.remove('hidden');
 
-    document.getElementById('modal-close').onclick = () => modal.classList.remove('active');
+    document.getElementById('modal-close').onclick = () => modal.classList.add('hidden');
     
     document.getElementById('modal-form').onsubmit = async (e) => {
         e.preventDefault();
@@ -386,7 +397,7 @@ window.openCreateModal = () => {
                 body: JSON.stringify(submitData)
             });
             if(res.ok) {
-                modal.classList.remove('active');
+                modal.classList.add('hidden');
                 window.location.reload();
             } else {
                 alert("Failed to create record. Verify details.");
@@ -418,9 +429,9 @@ window.openEditModal = (table, id, data, isSelfUpdate = false) => {
         `;
     });
 
-    modal.classList.add('active');
+    modal.classList.remove('hidden');
 
-    document.getElementById('modal-close').onclick = () => modal.classList.remove('active');
+    document.getElementById('modal-close').onclick = () => modal.classList.add('hidden');
     
     document.getElementById('modal-form').onsubmit = async (e) => {
         e.preventDefault();
@@ -434,7 +445,7 @@ window.openEditModal = (table, id, data, isSelfUpdate = false) => {
                 body: JSON.stringify(updateData)
             });
             if(res.ok) {
-                modal.classList.remove('active');
+                modal.classList.add('hidden');
                 if(isSelfUpdate) {
                     const u = JSON.parse(localStorage.getItem('user'));
                     Object.assign(u, updateData);
