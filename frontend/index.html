@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZHCET Portal | Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container hidden" id="hero-section">
+        <div class="hero-content">
+            <h1 class="glow-text">ZHCET Management System</h1>
+            <p>Welcome to the unified portal for Administrator, Faculty, and Students. Experience the next generation of college management.</p>
+            <button id="get-started-btn" class="primary-btn">Get Started</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="role-selection">
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Select Your Role</h2>
+        <div class="cards-container">
+            <div class="role-card glass-panel" data-role="admin">
+                <h3>Administrator</h3>
+                <p>Full access and system management</p>
+            </div>
+            <div class="role-card glass-panel" data-role="faculty">
+                <h3>Faculty Member</h3>
+                <p>Teacher profile and repository search</p>
+            </div>
+            <div class="role-card glass-panel" data-role="student">
+                <h3>Student</h3>
+                <p>Private personal student portal</p>
+            </div>
+        </div>
+        <button id="back-to-hero" class="text-btn">Back</button>
+    </div>
+
+    <div class="container hidden" id="login-section">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Portal - <span id="login-role-text"></span></h2>
+
+        <div class="auth-box glass-panel">
+            <div class="auth-toggle" id="auth-toggle">
+                <div class="auth-tab active" data-mode="login">Login</div>
+                <div class="auth-tab" data-mode="signup">Sign Up</div>
+            </div>
+
+            <form id="auth-form">
+                <input type="hidden" id="auth-role" name="role">
+                <input type="hidden" id="auth-mode" name="mode" value="login">
+                
+                <div id="dynamic-fields" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                </div>
+
+                <button type="submit" class="primary-btn full-width" id="submit-btn" style="margin-top: 1.5rem">Login</button>
+            </form>
+            <p id="auth-error" class="error-msg"></p>
+        </div>
+        <button id="back-to-roles" class="text-btn mt-2">Back to Roles</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
