@@ -19,11 +19,12 @@ if has_supabase and url and key:
 # Simple Mock DB for testing in case real Supabase credentials are not provided
 mock_db = {
     "admin": [
-        {"admin_id": "a1", "username": "admin", "password_hash": "admin123"},
+        {"admin_id": "a1", "username": "admin", "password_hash": "000"},
     ],
     "faculty": [
-        {"faculty_id": "f1", "name": "Dr. John Smith", "department": "Computer Science", "designation": "Professor", "mobile_number": "1234567890", "email_id": "john.smith@example.com", "area_of_specialization": "Machine Learning", "password_hash": "password123"},
-        {"faculty_id": "f2", "name": "Dr. Jane Doe", "department": "Electrical Engineering", "designation": "Assistant Professor", "mobile_number": "0987654321", "email_id": "jane.doe@example.com", "area_of_specialization": "Control Systems", "password_hash": "password123"}
+        {"faculty_id": "f1", "name": "Dr. Mohd. Aslam", "department": "Computer Engineering", "designation": "Professor", "mobile_number": "9876543210", "email_id": "m.aslam@zhcet.ac.in", "area_of_specialization": "Artificial Intelligence", "password_hash": "password123"},
+        {"faculty_id": "f2", "name": "Dr. Nazia Khatoon", "department": "Electronics Engineering", "designation": "Professor", "mobile_number": "9123456780", "email_id": "n.khatoon@zhcet.ac.in", "area_of_specialization": "VLSI Design", "password_hash": "password123"},
+        {"faculty_id": "f7", "name": "Dr. Tameem Ahmad", "department": "Computer Engineering", "designation": "Professor", "mobile_number": "9876543210", "email_id": "tameemahmad@gmail.com", "area_of_specialization": "OOPS", "password_hash": "password123"}
     ],
     "student": [
         {"student_id": "s1", "name": "Alice Johnson", "course_enrollment": "B.Tech CS", "current_semester": 5, "email_id": "alice@example.com", "mobile_number": "1112223333", "password_hash": "password123"},
