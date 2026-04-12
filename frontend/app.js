@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000/api';
+const API_URL = `http://${window.location.hostname}:8000/api`;
 
 document.addEventListener('DOMContentLoaded', () => {
     const isIndex = document.getElementById('hero-section') !== null;
