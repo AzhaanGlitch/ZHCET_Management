@@ -27,8 +27,8 @@ mock_db = {
         {"faculty_id": "f7", "name": "Dr. Tameem Ahmad", "department": "Computer Engineering", "designation": "Professor", "mobile_number": "9876543210", "email_id": "tameemahmad@gmail.com", "area_of_specialization": "OOPS", "password_hash": "password123"}
     ],
     "student": [
-        {"student_id": "s1", "name": "Alice Johnson", "course_enrollment": "B.Tech CS", "current_semester": 5, "email_id": "alice@example.com", "mobile_number": "1112223333", "password_hash": "password123"},
-        {"student_id": "s2", "name": "Bob Williams", "course_enrollment": "B.Tech EE", "current_semester": 3, "email_id": "bob@example.com", "mobile_number": "4445556666", "password_hash": "password123"}
+        {"student_id": "s1", "name": "Mehwash Nasir", "course_enrollment": "B.Tech CS", "current_semester": 5, "email_id": "mehwash@gmail.com", "mobile_number": "1112223333", "password_hash": "password123"},
+        {"student_id": "s2", "name": "Dipanshi Gaur", "course_enrollment": "B.Tech EE", "current_semester": 3, "email_id": "dipanshi@gmail.com", "mobile_number": "4445556666", "password_hash": "password123"}
     ]
 }
 
