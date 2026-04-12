@@ -32,16 +32,17 @@ CREATE TABLE student (
 );
 
 -- Insert Dummy Admin
-INSERT INTO admin (username, password_hash) VALUES ('admin', 'admin123');
+INSERT INTO admin (username, password_hash) VALUES ('admin', '000');
 
 -- Insert Dummy Faculty
 INSERT INTO faculty (name, department, designation, mobile_number, email_id, area_of_specialization, password_hash)
 VALUES 
-    ('Dr. John Smith', 'Computer Science', 'Professor', '1234567890', 'john.smith@example.com', 'Machine Learning', 'password123'),
-    ('Dr. Jane Doe', 'Electrical Engineering', 'Assistant Professor', '0987654321', 'jane.doe@example.com', 'Control Systems', 'password123');
+    ('Dr. Mohd. Aslam', 'Computer Engineering', 'Professor', '9876543210', 'm.aslam@zhcet.ac.in', 'Artificial Intelligence', 'password123'),
+    ('Dr. Nazia Khatoon', 'Electronics Engineering', 'Professor', '9123456780', 'n.khatoon@zhcet.ac.in', 'VLSI Design', 'password123'),
+    ('Dr. Tameem Ahmad', 'Computer Engineering', 'Professor', '9876543210', 'tameemahmad@gmail.com', 'OOPS', 'password123');
 
 -- Insert Dummy Student
 INSERT INTO student (name, course_enrollment, current_semester, email_id, mobile_number, password_hash)
 VALUES 
-    ('Alice Johnson', 'B.Tech CS', 5, 'alice@example.com', '1112223333', 'password123'),
-    ('Bob Williams', 'B.Tech EE', 3, 'bob@example.com', '4445556666', 'password123');
+    ('Mehwash Nasir', 'B.Tech CS', 5, 'mehwash@gmail.com', '1112223333', 'password123'),
+    ('Dipanshi Gaur', 'B.Tech EE', 3, 'dipanshi@gmail.com', '4445556666', 'password123');
